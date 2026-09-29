@@ -105,15 +105,6 @@ The client prints connection and classification messages in the terminal. Set th
 - `exit_script`: PLC-to-Python stop flag.
 - `accepted` and `unaccepted`: PLC status flags used by the HMI.
 
-## Current limitations
 
-- Image acquisition is simulated by randomly selecting a file; a camera is not connected.
-- The contour thresholds are tuned to the example images. Classification accuracy has not been measured on a representative image set.
-- In the current `check_label()` implementation, an empty contour list returns `False` for ejection. That case should be changed to reject or raise a diagnostic before relying on the classifier.
-- Python advances a local session counter instead of assigning the PLC's `sessinNumber`; resets can cause the two values to drift.
-- The current loop has no explicit delay or automatic OPC UA reconnection handling.
-- The CODESYS runtime logs captured during development included scheduler-tick failures, so continuous runtime stability has not been established.
-
-## Learning reference
 
 The project follows the practical topics covered in [PLC Basic Machine Vision | From Scratch](https://www.udemy.com/course/plc-basic-machine-vision-from-scratch/), by Mouhammad Hamsho and Kemalaldin Hamso. The code, PLC logic and screenshots in this repository document my implementation and test setup.
